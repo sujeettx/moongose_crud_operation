@@ -1,0 +1,54 @@
+# Existing entries
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Environment variable files
+.env
+
+# Build directories
+build/
+dist/
+coverage/
+
+# Editor directories and files
+.vscode/
+.idea/
+.DS_Store
+*.swp
+
+# OS-specific files
+Thumbs.db
+
+# Additional entries
+# Ignore all images
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+# Ignore custom configuration files
+config/local.json
+
+# Ignore temporary files
+temp/
+tmp/
+
+# Ignore all .bak files
+*.bak
+
+# Ignore any other directories or files as needed
+json/
