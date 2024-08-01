@@ -1,18 +1,18 @@
 const express = require("express");
 const bodyparser = require("body-parser");
+require("./db");
+const middleware = require("./middleware");
+const passport = require("./auth");
 const app = express();
 const port = 5800;
-require("./db");
-const logrequest = (req,res,next)=>{
-  console.log(`[${ new Date().toLocaleString()} request made to : ${req.originalUrl}]`);
-  next();
-}
-app.use(logrequest);
+app.use(middleware);
 app.use(express.json());
-const menucard = require('./routes/menucardRoutrs');
-app.use('/menuCard',menucard);
-const peoplesRoutes = require('./routes/peoplesRoutes');
-app.use('/people',peoplesRoutes)
+app.use(passport.initialize());
+const menucard = require("./routes/menucardRoutrs");
+app.use("/menuCard", menucard);
+const peoplesRoutes = require("./routes/peoplesRoutes");
+const localAthuerzation = passport.authenticate("local", { session: false });
+app.use("/people",localAthuerzation,peoplesRoutes);
 app.listen(port, () => {
   console.log(`server is running in port number ${port}`);
 });

@@ -30,6 +30,14 @@ const peopleSchema = new mongoose.Schema({
         type:String,
         unique:true,
         required:true
+    },
+    username:{
+        required:true,
+        type:String,
+    },
+    Password:{
+        type:String,
+        required:true,
     }
 });
 const PeoplesModel = mongoose.model('Peoples',peopleSchema)
